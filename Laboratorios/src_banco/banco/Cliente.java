@@ -5,6 +5,8 @@
  */
 package banco;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author estudiante
@@ -12,16 +14,16 @@ package banco;
 public class Cliente {
     
     String rut, nombre, apellidos;
-    Cuenta[] cuenta;
+    ArrayList<CuentaCorriente> cuentaCorriente = new ArrayList();
+    ArrayList<CuentaAhorro> cuentaAhorros = new ArrayList();
 
     public Cliente() {
     }
 
-    public Cliente(String rut, String nombre, String apellidos, Cuenta[] cuenta) {
+    public Cliente(String rut, String nombre, String apellidos) {
         this.rut = rut;
         this.nombre = nombre;
         this.apellidos = apellidos;
-        this.cuenta = cuenta;
     }
 
     
@@ -37,10 +39,6 @@ public class Cliente {
         return apellidos;
     }
 
-    public Cuenta[] getCuenta() {
-        return cuenta;
-    }
-
     public void setRut(String rut) {
         this.rut = rut;
     }
@@ -53,9 +51,31 @@ public class Cliente {
         this.apellidos = apellidos;
     }
 
-    public void setCuenta(Cuenta[] cuenta) {
-        this.cuenta = cuenta;
+    public ArrayList<CuentaAhorro> getCuentaAhorros() {
+        return cuentaAhorros;
     }
+
+    public ArrayList<CuentaCorriente> getCuentaCorriente() {
+        return cuentaCorriente;
+    }
+    
+    public void añadirCuentaAhorro(CuentaAhorro c){
+        cuentaAhorros.add(c);
+    }
+    
+    public void añadirCuentaCorriente(CuentaCorriente c){
+        cuentaCorriente.add(c);
+    }
+
+    @Override
+    public String toString() {
+        return "Nombre: "+nombre+" "+apellidos+"\n"
+                + "RUT: "+rut+"\n"
+                + "Cuentas de ahorro: "+cuentaAhorros.size()+"\n"
+                + "Cuentas Corrientes: "+cuentaCorriente.size()+"\n"; //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
     
     
     
