@@ -15,15 +15,16 @@ public class Candidato {
     int documento, telefono;
     char genero;
     PartidoPolitico partido;
-    int numero;
+    int numero, votos;
 
-    public Candidato(String nombre, String email, int documento, int telefono, char genero, PartidoPolitico partido) {
+    public Candidato(String nombre, String email, int documento, int telefono, char genero, PartidoPolitico partido, int votos) {
         this.nombre = nombre;
         this.email = email;
         this.documento = documento;
         this.telefono = telefono;
         this.genero = genero;
         this.partido = partido;
+        this.votos=votos;
     }
 //GETTER
     public String getNombre() {
@@ -53,6 +54,12 @@ public class Candidato {
     public int getNumero() {
         return numero;
     }
+
+    public int getVotos() {
+        return votos;
+    }
+    
+    
 //SETTER
 
     public void setNombre(String nombre) {
@@ -83,9 +90,15 @@ public class Candidato {
         if(data.toLowerCase().equals("senado")){
             numero= (int) (Math.random() *100);
         }else if(data.toLowerCase().equals("camara")){
-            numero= 100 + (int) (Math.random() *10);
+            numero= (int) (100 + (Math.random()*partido.getCurules()));
         }
     }
+
+    public void setVotos(int votos) {
+        this.votos = votos;
+    }
+    
+    
 
     @Override
     public String toString() {
@@ -95,7 +108,8 @@ public class Candidato {
                 + "Email: "+email+"\n"
                 + "Genero: "+genero+"\n"
                 + "Partido: "+partido.toString()+"\n"
-                + "Numero: "+numero;
+                + "Numero: "+numero+"\n"
+                + "Votos: "+votos;
     }
     
     

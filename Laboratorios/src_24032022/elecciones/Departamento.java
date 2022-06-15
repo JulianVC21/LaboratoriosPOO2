@@ -11,4 +11,22 @@ package elecciones;
  */
 public class Departamento {
     
+    String nombre;
+    int curules;
+
+    public Departamento(String nombre, int curules) {
+        this.nombre = nombre;
+        this.curules = curules;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getCurules() {
+        return curules;
+    }
+    
+    
+    
 }

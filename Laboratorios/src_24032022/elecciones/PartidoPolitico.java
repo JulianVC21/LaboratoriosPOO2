@@ -12,10 +12,13 @@ package elecciones;
 public class PartidoPolitico {
     
     String nombre, creacion;
+    Departamento departamento;
+    int votos;
 
-    public PartidoPolitico(String nombre, String creacion) {
+    public PartidoPolitico(String nombre, String creacion, Departamento dep) {
         this.nombre = nombre;
         this.creacion = creacion;
+        departamento = dep;
     }
 
     public String getNombre() {
@@ -25,6 +28,20 @@ public class PartidoPolitico {
     public String getCreacion() {
         return creacion;
     }
+    
+    public int getCurules(){
+        return departamento.getCurules();
+    }
+
+    public int getVotos() {
+        return votos;
+    }
+
+    public void setVotos(int votos) {
+        this.votos += votos;
+    }
+    
+    
 
     @Override
     public String toString() {

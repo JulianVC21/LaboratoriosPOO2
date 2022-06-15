@@ -15,15 +15,30 @@ public class EleccionesParlamentarias {
     
     static ArrayList<Candidato> senado = new ArrayList();
     static ArrayList<Candidato> camara = new ArrayList();
+    static ArrayList<PartidoPolitico> partidos = new ArrayList();
+    
+    public static void inscribirPartido(PartidoPolitico p){
+        partidos.add(p);
+    }
+    
+    public static void votosPorPartido(){
+        System.out.println("--------------------------------------------\n"
+                + "REPRESENTANTES A SENADO");
+        for(int i=0; i<partidos.size(); i++){
+            System.out.println(partidos.get(i).getNombre()+": "+partidos.get(i).getVotos()+" votos");
+        }
+    }
     
     public static void inscribirCandidato(Candidato candidato, String representacion){
         
         if(representacion.equals("senado")){
             candidato.setNumero("senado");
             senado.add(candidato);
+            candidato.getPartido().setVotos(candidato.getVotos());
         }else if(representacion.equals("camara")){
             candidato.setNumero("camara");
             camara.add(candidato);
+            candidato.getPartido().setVotos(candidato.getVotos());
         }
     }
     
